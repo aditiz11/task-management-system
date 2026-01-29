@@ -149,22 +149,21 @@ Frontend will run on: `http://localhost:5173`
 
 **Dashboard (User)**
 
-![User Dashboard]
+
 <img width="1920" height="1020" alt="User-dashboard" src="https://github.com/user-attachments/assets/3a169482-c136-4501-b610-90e2fcc3cbb7" />
 
 **Dashboard (Admin)**
 <img width="1920" height="1020" alt="Admin-dashboard" src="https://github.com/user-attachments/assets/8584fb52-1258-4597-b5cf-0e78cccbe045" />
 
-![Admin Dashboard]
+
 
 **Prisma DashBoard**
 <img width="1920" height="1020" alt="prisma-dashboard" src="https://github.com/user-attachments/assets/cf6956b7-9b27-4438-aae3-7346a247c3eb" />
 
-![Prisma DashBoard]
+
 ---
 
 
 ```
 
----
 
