@@ -161,9 +161,6 @@ Frontend will run on: `http://localhost:5173`
 <img width="1920" height="1020" alt="prisma-dashboard" src="https://github.com/user-attachments/assets/cf6956b7-9b27-4438-aae3-7346a247c3eb" />
 
 
----
 
-
-```
 
 
