@@ -9,7 +9,7 @@ export default function Login({ onLogin }) {
     const res = await login({ email, password });
     if (res.token) {
       localStorage.setItem("token", res.token);
-      localStorage.setItem("role", res.role); // store role
+      localStorage.setItem("role", res.role);
       onLogin();
     } else {
       alert("Login failed: " + res.message);

@@ -17,14 +17,18 @@ export default function Dashboard({ onLogout }) {
   const loadTasks = async () => {
     const myTasks = await getTasks();
     setTasks(myTasks);
+    console.log(`[FRONTEND][LOAD] My Tasks Loaded:`, myTasks);
 
     if (role === "ADMIN") {
       const allUsers = await getAllUsersWithTasks();
-      setUsers(allUsers.filter((u) => u.role !== "ADMIN")); // exclude self
+      const otherUsers = allUsers.filter((u) => u.role !== "ADMIN"); // exclude self
+      setUsers(otherUsers);
+      console.log(`[FRONTEND][LOAD] Other Users Loaded:`, otherUsers);
     }
   };
 
   const handleStatusChange = async (id, status) => {
+    console.log(`[FRONTEND][TASK] Changing Task Status → Task ID: ${id}, New Status: ${status}`);
     await updateTaskStatus(id, status);
     loadTasks();
   };
@@ -34,8 +38,14 @@ export default function Dashboard({ onLogout }) {
 
     let assignedUserId = null;
     if (role === "ADMIN") {
-      assignedUserId = userId === "self" || !userId ? null : userId;
+      assignedUserId = userId === "self" || !userId ? null : Number(userId);
     }
+
+    console.log(
+      `[FRONTEND][TASK] Creating Task → Title: "${title}", Assigned To: ${
+        role === "ADMIN" ? assignedUserId || "Self" : "Self"
+      }`
+    );
 
     await createTask({ title, userId: assignedUserId });
     setTitle("");
@@ -44,15 +54,9 @@ export default function Dashboard({ onLogout }) {
   };
 
   useEffect(() => {
+    console.log(`[FRONTEND] Dashboard Mounted for Role: ${role}`);
     loadTasks();
   }, []);
-
-  // Function to return status class for coloring
-  const statusClass = (status) => {
-    if (status === "NOT_STARTED") return "status-NOT_STARTED";
-    if (status === "IN_PROGRESS") return "status-IN_PROGRESS";
-    if (status === "FINISHED") return "status-FINISHED";
-  };
 
   return (
     <div className="dashboard-container">
@@ -61,6 +65,7 @@ export default function Dashboard({ onLogout }) {
       <button
         className="logout-btn"
         onClick={() => {
+          console.log(`[FRONTEND] User Logged Out`);
           localStorage.clear();
           onLogout();
         }}
@@ -95,10 +100,11 @@ export default function Dashboard({ onLogout }) {
         <ul>
           {tasks.map((t) => (
             <li key={t.id}>
-              <span>{t.title}</span>
+              {t.title} —
               <select
                 value={t.status}
                 onChange={(e) => handleStatusChange(t.id, e.target.value)}
+                className={`status-${t.status}`}
               >
                 <option value="NOT_STARTED">Not Started</option>
                 <option value="IN_PROGRESS">In Progress</option>
@@ -109,7 +115,7 @@ export default function Dashboard({ onLogout }) {
         </ul>
       </section>
 
-      {/* ---------- Admin: Other Users Tasks (read-only colored badge) ---------- */}
+      {/* ---------- Admin: Other Users Tasks (read-only) ---------- */}
       {role === "ADMIN" && (
         <section>
           <h3>Other Users' Tasks</h3>
@@ -119,8 +125,11 @@ export default function Dashboard({ onLogout }) {
               <ul>
                 {u.tasks.map((t) => (
                   <li key={t.id}>
-                    <span>{t.title}</span>
-                    <span className={`status-badge ${statusClass(t.status)}`}>
+                    {t.title} —
+                    <span
+                      className={`status-${t.status}`}
+                      style={{ display: "inline-block", width: "120px", textAlign: "center" }}
+                    >
                       {t.status.replace("_", " ")}
                     </span>
                   </li>

@@ -1,4 +1,4 @@
-/* ---------- General body styling ---------- */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f6fa;
@@ -7,7 +7,7 @@ body {
   color: #2f3640;
 }
 
-/* ---------- Register & Login Forms ---------- */
+/*Register & Login Forms */
 .form-container {
   max-width: 400px;
   margin: 80px auto;
@@ -58,7 +58,7 @@ body {
   font-size: 14px;
 }
 
-/* ---------- Dashboard Container ---------- */
+/* Dashboard Container */
 .dashboard-container {
   max-width: 800px;
   margin: 40px auto;
@@ -78,7 +78,6 @@ body {
   margin-top: 20px;
 }
 
-/* ---------- Task Input + Buttons ---------- */
 .task-input-group {
   display: flex;
   gap: 10px;
@@ -107,14 +106,14 @@ li {
   font-size: 14px;
 }
 
-/* ---------- Status Dropdown Styling (fix for browser gray) ---------- */
+
 li select {
   padding: 4px 8px;
   border-radius: 6px;
   border: 1px solid #dcdde1;
   font-weight: bold;
   cursor: pointer;
-  appearance: none; /* remove default OS styling */
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   color: #2f3640;
@@ -137,12 +136,10 @@ li select.status-FINISHED {
   color: white;
 }
 
-/* Optional: arrow styling for select dropdown */
 li select::-ms-expand {
-  display: none; /* remove default arrow in IE */
+  display: none; 
 }
 
-/* Read-only status badge for other users' tasks */
 .status-badge {
   padding: 4px 8px;
   border-radius: 6px;
@@ -153,7 +150,6 @@ li select::-ms-expand {
   text-align: center;
 }
 
-/* Colored badges */
 .status-NOT_STARTED {
   background-color: #dcdde1;
   color: #2f3640;

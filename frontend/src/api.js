@@ -1,7 +1,6 @@
 const API_URL = "http://localhost:5000/api/v1";
 const getToken = () => localStorage.getItem("token");
 
-// ---------- AUTH ----------
 export const register = async (data) => {
   const res = await fetch(`${API_URL}/auth/register`, {
     method: "POST",
@@ -20,7 +19,6 @@ export const login = async (data) => {
   return res.json();
 };
 
-// ---------- TASKS ----------
 // Get current user's tasks
 export const getTasks = async () => {
   const res = await fetch(`${API_URL}/tasks`, {
