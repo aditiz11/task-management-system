@@ -1,0 +1,196 @@
+/* ---------- General body styling ---------- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6fa;
+  margin: 0;
+  padding: 0;
+  color: #2f3640;
+}
+
+/* ---------- Register & Login Forms ---------- */
+.form-container {
+  max-width: 400px;
+  margin: 80px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #273c75;
+  margin-bottom: 20px;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 12px 10px;
+  border-radius: 8px;
+  border: 1px solid #dcdde1;
+  font-size: 14px;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #273c75;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-container button:hover {
+  background-color: #192a56;
+}
+
+.form-container .error-message {
+  color: #e84118;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ---------- Dashboard Container ---------- */
+.dashboard-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container h2 {
+  text-align: center;
+  color: #273c75;
+}
+
+.dashboard-container h3 {
+  color: #192a56;
+  margin-top: 20px;
+}
+
+/* ---------- Task Input + Buttons ---------- */
+.task-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-input-group input,
+.task-input-group select {
+  flex: 1;
+}
+
+/* ---------- Task List Items ---------- */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f1f2f6;
+  font-size: 14px;
+}
+
+/* ---------- Status Dropdown Styling (fix for browser gray) ---------- */
+li select {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #dcdde1;
+  font-weight: bold;
+  cursor: pointer;
+  appearance: none; /* remove default OS styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #2f3640;
+  font-size: 14px;
+}
+
+/* ---------- Status colors only on the select dropdown ---------- */
+li select.status-NOT_STARTED {
+  background-color: #dcdde1;
+  color: #2f3640;
+}
+
+li select.status-IN_PROGRESS {
+  background-color: #fbc531;
+  color: #2f3640;
+}
+
+li select.status-FINISHED {
+  background-color: #4cd137;
+  color: white;
+}
+
+/* Optional: arrow styling for select dropdown */
+li select::-ms-expand {
+  display: none; /* remove default arrow in IE */
+}
+
+/* Read-only status badge for other users' tasks */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 12px;
+  color: white;
+  min-width: 90px;
+  text-align: center;
+}
+
+/* Colored badges */
+.status-NOT_STARTED {
+  background-color: #dcdde1;
+  color: #2f3640;
+}
+
+.status-IN_PROGRESS {
+  background-color: #fbc531;
+  color: #2f3640;
+}
+
+.status-FINISHED {
+  background-color: #4cd137;
+  color: white;
+}
+
+/* ---------- Logout Button ---------- */
+.logout-btn {
+  background-color: #e84118;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.logout-btn:hover {
+  background-color: #c23616;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .task-input-group {
+    flex-direction: column;
+  }
+
+  .form-container {
+    margin: 40px 20px;
+  }
+}
